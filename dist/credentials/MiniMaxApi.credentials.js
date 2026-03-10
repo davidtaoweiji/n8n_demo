@@ -9,6 +9,7 @@ class MiniMaxApi {
             light: 'file:../icons/minimax.svg',
             dark: 'file:../icons/minimax.dark.svg',
         };
+        this.documentationUrl = 'https://platform.minimax.io';
         this.properties = [
             {
                 displayName: 'API Key',

@@ -17,6 +17,8 @@ export class MiniMaxApi implements ICredentialType {
 		dark: 'file:../icons/minimax.dark.svg',
 	};
 
+	documentationUrl = 'https://platform.minimax.io';
+
 	properties: INodeProperties[] = [
 		{
 			displayName: 'API Key',

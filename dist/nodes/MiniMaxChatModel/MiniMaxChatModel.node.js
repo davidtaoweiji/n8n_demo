@@ -47,32 +47,32 @@ class MiniMaxChatModel {
                     description: 'The model which will generate the completion',
                     options: [
                         {
-                            name: 'M2-highyer',
-                            value: 'M2-highyer',
-                        },
-                        {
-                            name: 'M2-her',
-                            value: 'M2-her',
-                        },
-                        {
-                            name: 'abab6.5s-chat',
-                            value: 'abab6.5s-chat',
-                        },
-                        {
-                            name: 'abab6.5g-chat',
-                            value: 'abab6.5g-chat',
-                        },
-                        {
-                            name: 'abab6.5t-chat',
-                            value: 'abab6.5t-chat',
-                        },
-                        {
                             name: 'abab5.5-chat',
                             value: 'abab5.5-chat',
                         },
                         {
                             name: 'abab5.5s-chat',
                             value: 'abab5.5s-chat',
+                        },
+                        {
+                            name: 'abab6.5g-chat',
+                            value: 'abab6.5g-chat',
+                        },
+                        {
+                            name: 'abab6.5s-chat',
+                            value: 'abab6.5s-chat',
+                        },
+                        {
+                            name: 'abab6.5t-chat',
+                            value: 'abab6.5t-chat',
+                        },
+                        {
+                            name: 'M2-Her',
+                            value: 'M2-her',
+                        },
+                        {
+                            name: 'M2-Highyer',
+                            value: 'M2-highyer',
                         },
                     ],
                 },
@@ -97,7 +97,7 @@ class MiniMaxChatModel {
                             name: 'topP',
                             default: 0.95,
                             typeOptions: { maxValue: 1, minValue: 0, numberPrecision: 2 },
-                            description: 'Controls diversity via nucleus sampling: 0.5 means half of all likelihood-weighted options are considered.',
+                            description: 'Controls diversity via nucleus sampling: 0.5 means half of all likelihood-weighted options are considered',
                             type: 'number',
                         },
                         {
@@ -105,7 +105,7 @@ class MiniMaxChatModel {
                             name: 'maxTokens',
                             default: 2048,
                             typeOptions: { maxValue: 32000, minValue: 1, numberPrecision: 0 },
-                            description: 'The maximum number of tokens to generate in the completion.',
+                            description: 'The maximum number of tokens to generate in the completion',
                             type: 'number',
                         },
                     ],
