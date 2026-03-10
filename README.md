@@ -1,18 +1,10 @@
 # n8n-nodes-minimax-chat
 
-This is an n8n community node. It lets you use _app/service name_ in your n8n workflows.
-
-_App/service name_ is _one or two sentences describing the service this node integrates with_.
+MiniMax Chat Model node for n8n - Use MiniMax AI models in your n8n workflows.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
-[Installation](#installation)
-[Operations](#operations)
-[Credentials](#credentials)
-[Compatibility](#compatibility)
-[Usage](#usage)
-[Resources](#resources)
-[Version history](#version-history)
+[MiniMax](https://platform.minimax.io/) is an AI platform that provides various language models for chat, text generation, and more.
 
 ## Installation
 
@@ -20,27 +12,60 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-_List the operations supported by your node._
+This node provides access to MiniMax AI chat models for use in n8n AI workflows.
 
 ## Credentials
 
-_If users need to authenticate with the app/service, provide details here. You should include prerequisites (such as signing up with the service), available authentication methods, and how to set them up._
+To use this node, you need a MiniMax API key:
+
+1. Sign up at [MiniMax Platform](https://platform.minimax.io/)
+2. Get your API Key from the console
+3. Create a new credential in n8n with your API Key
 
 ## Compatibility
 
-_State the minimum n8n version, as well as which versions you test against. You can also include any known version incompatibility issues._
+- Requires n8n version 1.19.0 or higher
+- Uses `@n8n/ai-node-sdk`
 
 ## Usage
 
-_This is an optional section. Use it to help users with any difficult or confusing aspects of the node._
+1. Install this community node in n8n
+2. Add the "MiniMax Chat Model" node to your workflow
+3. Connect it to an AI Chain node (like Basic LLM Chain)
+4. Configure your MiniMax API credentials
 
-_By the time users are looking for community nodes, they probably already know n8n basics. But if you expect new users, you can link to the [Try it out](https://docs.n8n.io/try-it-out/) documentation to help them get started._
+### Available Models
+
+- M2-her
+- M2-highyer
+- abab6.5s-chat
+- abab6.5g-chat
+- abab6.5t-chat
+- abab5.5-chat
+- abab5.5s-chat
+
+### Options
+
+- **Sampling Temperature**: Controls randomness (0-1)
+- **Nucleus Sampling (Top P)**: Controls diversity via nucleus sampling
+- **Max Tokens**: Maximum tokens to generate
+
+## Example Workflow
+
+```
+[Chat Trigger] → [MiniMax Chat Model] → [Basic LLM Chain]
+```
 
 ## Resources
 
-* [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-* _Link to app/service documentation._
+- [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
+- [MiniMax Platform](https://platform.minimax.io/)
+- [MiniMax API Documentation](https://platform.minimax.io/docs)
 
-## Version history
+## Version History
 
-_This is another optional section. If your node has multiple versions, include a short description of available versions and what changed, as well as any compatibility impact._
+### 0.1.0
+
+- Initial release
+- Support for MiniMax Chat models
+- API v2 endpoint integration
