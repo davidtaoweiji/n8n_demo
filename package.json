@@ -3,7 +3,7 @@
 	"version": "0.1.2",
 	"description": "MiniMax Chat Model node for n8n - Use MiniMax AI models in your n8n workflows",
 	"license": "MIT",
-	"homepage": "https://github.com/davidtaoweiji/n8n-nodes-minimax-chat#readme",
+	"homepage": "https://github.com/davidtaoweiji/n8n_demo#readme",
 	"keywords": [
 		"n8n",
 		"n8n-community-node-package",
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/davidtaoweiji/n8n-nodes-minimax-chat.git"
+		"url": "https://github.com/davidtaoweiji/n8n_demo.git"
 	},
 	"scripts": {
 		"build": "n8n-node build",
