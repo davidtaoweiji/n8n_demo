@@ -37,7 +37,7 @@ export class MiniMaxApi implements ICredentialType {
 			url: '/v1/text/chatcompletion_v2',
 			method: 'POST',
 			body: JSON.stringify({
-				model: 'M2-her',
+				model: 'MiniMax-M2.5',
 				messages: [{ role: 'user', content: 'Hello' }],
 				max_tokens: 1,
 			}),

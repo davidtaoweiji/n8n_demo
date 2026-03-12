@@ -36,13 +36,8 @@ To use this node, you need a MiniMax API key:
 
 ### Available Models
 
-- M2-her
-- M2-highyer
-- abab6.5s-chat
-- abab6.5g-chat
-- abab6.5t-chat
-- abab5.5-chat
-- abab5.5s-chat
+- MiniMax-M2.5
+- MiniMax-M2.1
 
 ### Options
 

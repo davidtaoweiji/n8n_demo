@@ -43,36 +43,16 @@ class MiniMaxChatModel {
                     displayName: 'Model',
                     name: 'model',
                     type: 'options',
-                    default: 'M2-her',
+                    default: 'MiniMax-M2.5',
                     description: 'The model which will generate the completion',
                     options: [
                         {
-                            name: 'abab5.5-chat',
-                            value: 'abab5.5-chat',
+                            name: 'MiniMax-M2.5',
+                            value: 'MiniMax-M2.5',
                         },
                         {
-                            name: 'abab5.5s-chat',
-                            value: 'abab5.5s-chat',
-                        },
-                        {
-                            name: 'abab6.5g-chat',
-                            value: 'abab6.5g-chat',
-                        },
-                        {
-                            name: 'abab6.5s-chat',
-                            value: 'abab6.5s-chat',
-                        },
-                        {
-                            name: 'abab6.5t-chat',
-                            value: 'abab6.5t-chat',
-                        },
-                        {
-                            name: 'M2-Her',
-                            value: 'M2-her',
-                        },
-                        {
-                            name: 'M2-Highyer',
-                            value: 'M2-highyer',
+                            name: 'MiniMax-M2.1',
+                            value: 'MiniMax-M2.1',
                         },
                     ],
                 },
