@@ -1,7 +1,7 @@
 {
 	"name": "n8n-nodes-minimax-chat",
 	"version": "0.1.5",
-	"description": "MiniMax Chat Model node for n8n - Use MiniMax AI models in your n8n workflows",
+	"description": "MiniMax Chat Model and TTS nodes for n8n - Use MiniMax AI models and speech in your workflows",
 	"license": "MIT",
 	"homepage": "https://github.com/davidtaoweiji/n8n_demo#readme",
 	"keywords": [
@@ -9,7 +9,8 @@
 		"n8n-community-node-package",
 		"minimax",
 		"ai",
-		"chat"
+		"chat",
+		"tts"
 	],
 	"author": {
 		"name": "taowei ji",
@@ -39,7 +40,8 @@
 			"dist/credentials/MiniMaxApi.credentials.js"
 		],
 		"nodes": [
-			"dist/nodes/MiniMaxChatModel/MiniMaxChatModel.node.js"
+			"dist/nodes/MiniMaxChatModel/MiniMaxChatModel.node.js",
+			"dist/nodes/MiniMaxTts/MiniMaxTts.node.js"
 		]
 	},
 	"devDependencies": {
