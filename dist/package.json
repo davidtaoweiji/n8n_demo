@@ -26,7 +26,8 @@
         "reset:local": "rm -rf /tmp/n8n-minimax-ext /tmp/n8n-minimax-user",
         "stage:local": "rm -rf /tmp/n8n-minimax-ext && mkdir -p /tmp/n8n-minimax-ext/n8n-nodes-minimax-chat && cp package.json /tmp/n8n-minimax-ext/n8n-nodes-minimax-chat/package.json && cp -R dist /tmp/n8n-minimax-ext/n8n-nodes-minimax-chat/dist && cp -R icons /tmp/n8n-minimax-ext/n8n-nodes-minimax-chat/icons && cd /tmp/n8n-minimax-ext/n8n-nodes-minimax-chat && npm install --omit=dev && rm -rf node_modules/n8n-workflow node_modules/@n8n/expression-runtime node_modules/isolated-vm && ln -s /tmp/n8n-runtime/node_modules/n8n-workflow node_modules/n8n-workflow && ln -s /tmp/n8n-runtime/node_modules/@n8n/expression-runtime node_modules/@n8n/expression-runtime && ln -s /tmp/n8n-runtime/node_modules/isolated-vm node_modules/isolated-vm",
         "ensure:n8n": "[ -f /tmp/n8n-runtime/node_modules/.bin/n8n ] || (mkdir -p /tmp/n8n-runtime && cd /tmp/n8n-runtime && npm init -y > /dev/null 2>&1 && npm install n8n@latest)",
-        "start:local": "NODE_PATH=/tmp/n8n-runtime/node_modules N8N_PORT=5679 N8N_USER_FOLDER=/tmp/n8n-minimax-user N8N_CUSTOM_EXTENSIONS=/tmp/n8n-minimax-ext DB_SQLITE_POOL_SIZE=10 /tmp/n8n-runtime/node_modules/.bin/n8n start",
+        "start:local": "NODE_PATH=/tmp/n8n-runtime/node_modules N8N_PORT=5679 N8N_USER_FOLDER=$HOME/.n8n-minimax-local N8N_CUSTOM_EXTENSIONS=/tmp/n8n-minimax-ext DB_SQLITE_POOL_SIZE=10 /tmp/n8n-runtime/node_modules/.bin/n8n start",
+        "rebuild:local": "npm run build && rm -rf /tmp/n8n-minimax-ext/n8n-nodes-minimax-chat/dist && cp -R dist /tmp/n8n-minimax-ext/n8n-nodes-minimax-chat/dist",
         "dev:local": "npm run build && npm run ensure:n8n && npm run stage:local && npm run start:local",
         "dev": "n8n-node dev",
         "lint": "n8n-node lint",
@@ -63,5 +64,8 @@
     "peerDependencies": {
         "n8n-workflow": "^2.12.0",
         "@n8n/ai-node-sdk": "^0.4.0"
+    },
+    "overrides": {
+        "@n8n/ai-utilities": "0.7.0"
     }
 }
