@@ -2,6 +2,31 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MiniMaxTts = void 0;
 const n8n_workflow_1 = require("n8n-workflow");
+const getAudioMimeType = (format) => {
+    switch (format.toLowerCase()) {
+        case 'wav':
+            return 'audio/wav';
+        case 'pcm':
+            return 'audio/L16';
+        case 'flac':
+            return 'audio/flac';
+        case 'mp3':
+        default:
+            return 'audio/mpeg';
+    }
+};
+const toBuffer = (value) => {
+    if (Buffer.isBuffer(value)) {
+        return value;
+    }
+    if (typeof value === 'string') {
+        return Buffer.from(value, 'binary');
+    }
+    if (value instanceof ArrayBuffer) {
+        return Buffer.from(value);
+    }
+    return undefined;
+};
 class MiniMaxTts {
     constructor() {
         this.description = {
@@ -194,6 +219,18 @@ class MiniMaxTts {
                         },
                     },
                 },
+                {
+                    displayName: 'Return Binary',
+                    name: 'returnBinary',
+                    type: 'boolean',
+                    default: true,
+                    description: 'Whether to return audio as binary data on property "audio"',
+                    displayOptions: {
+                        show: {
+                            stream: [false],
+                        },
+                    },
+                },
             ],
         };
     }
@@ -222,6 +259,7 @@ class MiniMaxTts {
                 const pronunciationTone = this.getNodeParameter('pronunciationTone', i, '');
                 const subtitleEnable = this.getNodeParameter('subtitleEnable', i);
                 const outputFormat = this.getNodeParameter('outputFormat', i, 'url');
+                const returnBinary = this.getNodeParameter('returnBinary', i, true);
                 const toneList = pronunciationTone
                     .split('\n')
                     .map((line) => line.trim())
@@ -267,15 +305,42 @@ class MiniMaxTts {
                     (responseDataField === null || responseDataField === void 0 ? void 0 : responseDataField.audio_url) ||
                     responseJson.audio ||
                     responseJson.audio_url;
-                const audioUrl = typeof rawAudio === 'string' && /^https?:\/\//i.test(rawAudio) ? rawAudio : undefined;
-                returnData.push({
+                const audioAsString = typeof rawAudio === 'string' ? rawAudio : undefined;
+                const audioUrl = typeof audioAsString === 'string' && /^https?:\/\//i.test(audioAsString)
+                    ? audioAsString
+                    : undefined;
+                let audioBuffer;
+                if (!stream && returnBinary && typeof audioAsString === 'string') {
+                    if (audioUrl) {
+                        const downloadedAudio = await this.helpers.httpRequest({
+                            method: 'GET',
+                            url: audioUrl,
+                            encoding: 'arraybuffer',
+                            json: false,
+                        });
+                        audioBuffer = toBuffer(downloadedAudio);
+                    }
+                    else if (/^[0-9a-fA-F]+$/.test(audioAsString)) {
+                        audioBuffer = Buffer.from(audioAsString, 'hex');
+                    }
+                }
+                const outputItem = {
                     json: {
                         ...responseJson,
                         trace_id: traceId,
                         audio_url: audioUrl,
                     },
                     pairedItem: { item: i },
-                });
+                };
+                if (audioBuffer && audioBuffer.length > 0) {
+                    const selectedFormat = (audioSettings.format || 'mp3').toLowerCase();
+                    const fileExtension = selectedFormat === 'pcm' ? 'pcm' : selectedFormat;
+                    const traceSuffix = traceId || String(i + 1);
+                    outputItem.binary = {
+                        audio: await this.helpers.prepareBinaryData(audioBuffer, `minimax-tts-${traceSuffix}.${fileExtension}`, getAudioMimeType(selectedFormat)),
+                    };
+                }
+                returnData.push(outputItem);
             }
             catch (error) {
                 if (this.continueOnFail()) {

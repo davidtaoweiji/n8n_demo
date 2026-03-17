@@ -1,6 +1,6 @@
 {
     "name": "n8n-nodes-minimax-chat",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "MiniMax Chat Model and TTS nodes for n8n - Use MiniMax AI models and speech in your workflows",
     "license": "MIT",
     "homepage": "https://github.com/davidtaoweiji/n8n_demo#readme",

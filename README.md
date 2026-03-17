@@ -50,6 +50,7 @@ To use this node, you need a MiniMax API key:
 - Supports voice settings, audio settings, pronunciation tone list, and subtitles toggle
 - Supports `Output Format` (`url` or `hex`) for non-streaming mode; default is `url`
 - When response contains a URL audio payload, node also exposes it as `audio_url`
+- Can return binary audio on `binary.audio` (enabled by default) so downstream file nodes can save it directly
 
 ### Available Models
 
