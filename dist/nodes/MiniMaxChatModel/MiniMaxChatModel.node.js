@@ -47,6 +47,10 @@ class MiniMaxChatModel {
                     description: 'The model which will generate the completion',
                     options: [
                         {
+                            name: 'MiniMax-M2.7',
+                            value: 'MiniMax-M2.7',
+                        },
+                        {
                             name: 'MiniMax-M2.5',
                             value: 'MiniMax-M2.5',
                         },
@@ -99,7 +103,7 @@ class MiniMaxChatModel {
         const options = this.getNodeParameter('options', itemIndex, {});
         return (0, ai_node_sdk_1.supplyModel)(this, {
             type: 'openai',
-            baseUrl: 'https://api.minimaxi.com/v1',
+            baseUrl: 'https://api.minimax.io/v1',
             apiKey: credentials.apiKey,
             model: modelName,
             temperature: options.temperature,

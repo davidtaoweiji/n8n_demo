@@ -293,7 +293,7 @@ class MiniMaxTts {
                 }
                 const responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'miniMaxApi', {
                     method: 'POST',
-                    url: 'https://api.minimaxi.com/v1/t2a_v2',
+                    url: 'https://api.minimax.io/v1/t2a_v2',
                     body,
                     json: true,
                 });

@@ -55,6 +55,10 @@ export class MiniMaxChatModel implements INodeType {
 				description: 'The model which will generate the completion',
 				options: [
 					{
+						name: 'MiniMax-M2.7',
+						value: 'MiniMax-M2.7',
+					},
+					{
 						name: 'MiniMax-M2.5',
 						value: 'MiniMax-M2.5',
 					},
@@ -110,7 +114,7 @@ export class MiniMaxChatModel implements INodeType {
 		// MiniMax API v2 endpoint
 		return supplyModel(this, {
 			type: 'openai',
-			baseUrl: 'https://api.minimaxi.com/v1',
+			baseUrl: 'https://api.minimax.io/v1',
 			apiKey: credentials.apiKey as string,
 			model: modelName,
 			temperature: options.temperature,

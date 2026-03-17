@@ -33,7 +33,7 @@ export class MiniMaxApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: 'https://api.minimaxi.com',
+			baseURL: 'https://api.minimax.io',
 			url: '/v1/text/chatcompletion_v2',
 			method: 'POST',
 			body: JSON.stringify({

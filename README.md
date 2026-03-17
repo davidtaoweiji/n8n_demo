@@ -54,6 +54,7 @@ To use this node, you need a MiniMax API key:
 
 ### Available Models
 
+- MiniMax-M2.7
 - MiniMax-M2.5
 - MiniMax-M2.1
 
