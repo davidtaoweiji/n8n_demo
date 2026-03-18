@@ -77,7 +77,7 @@ export class MiniMaxVideoI2V implements INodeType {
 				description:
 					'Video resolution. MiniMax-Hailuo-02 additionally supports 512P.',
 				options: [
-					{ name: '512P (Hailuo-02 only)', value: '512P' },
+					{ name: '512P (Hailuo-02 Only)', value: '512P' },
 					{ name: '768P', value: '768P' },
 					{ name: '1080P', value: '1080P' },
 				],
