@@ -235,7 +235,7 @@ class MiniMaxTts {
         };
     }
     async execute() {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         const items = this.getInputData();
         const returnData = [];
         for (let i = 0; i < items.length; i++) {
@@ -324,11 +324,14 @@ class MiniMaxTts {
                         audioBuffer = Buffer.from(audioAsString, 'hex');
                     }
                 }
+                delete responseJson.audio;
+                delete responseJson.audio_url;
+                (_j = responseJson.data) === null || _j === void 0 ? true : delete _j.audio;
+                (_k = responseJson.data) === null || _k === void 0 ? true : delete _k.audio_url;
                 const outputItem = {
                     json: {
                         ...responseJson,
                         trace_id: traceId,
-                        audio_url: audioUrl,
                     },
                     pairedItem: { item: i },
                 };

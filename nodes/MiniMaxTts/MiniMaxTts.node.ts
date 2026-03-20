@@ -79,7 +79,8 @@ export class MiniMaxTts implements INodeType {
 					rows: 4,
 				},
 				default: '',
-				description: 'Text to convert to speech. If empty, it will be read from upstream JSON (text, output, response, or content).',
+				description:
+					'Text to convert to speech. If empty, it will be read from upstream JSON (text, output, response, or content).',
 			},
 			{
 				displayName: 'Stream',
@@ -355,18 +356,23 @@ export class MiniMaxTts implements INodeType {
 					}
 				}
 
+				delete (responseJson as IDataObject).audio;
+				delete (responseJson as IDataObject).audio_url;
+				delete (responseJson.data as IDataObject)?.audio;
+				delete (responseJson.data as IDataObject)?.audio_url;
+
 				const outputItem: INodeExecutionData = {
 					json: {
 						...responseJson,
 						trace_id: traceId,
-						audio_url: audioUrl,
 					},
 					pairedItem: { item: i },
 				};
 
 				if (audioBuffer && audioBuffer.length > 0) {
-					const selectedFormat =
-						((audioSettings.format as string | undefined) || 'mp3').toLowerCase();
+					const selectedFormat = (
+						(audioSettings.format as string | undefined) || 'mp3'
+					).toLowerCase();
 					const fileExtension = selectedFormat === 'pcm' ? 'pcm' : selectedFormat;
 					const traceSuffix = traceId || String(i + 1);
 					outputItem.binary = {

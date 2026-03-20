@@ -82,6 +82,8 @@ export class MiniMaxVideoDownload implements INodeType {
 				const fileInfo = responseJson.file as IDataObject | undefined;
 				const downloadUrl = fileInfo?.download_url as string | undefined;
 
+				delete (responseJson.file as IDataObject)?.download_url;
+
 				const outputItem: INodeExecutionData = {
 					json: responseJson,
 					pairedItem: { item: i },
@@ -96,7 +98,8 @@ export class MiniMaxVideoDownload implements INodeType {
 					});
 					const videoBuffer = toBuffer(videoData);
 					if (videoBuffer && videoBuffer.length > 0) {
-						const filename = (fileInfo?.filename as string | undefined) || `minimax-video-${fileId}.mp4`;
+						const filename =
+							(fileInfo?.filename as string | undefined) || `minimax-video-${fileId}.mp4`;
 						outputItem.binary = {
 							video: await this.helpers.prepareBinaryData(videoBuffer, filename, 'video/mp4'),
 						};

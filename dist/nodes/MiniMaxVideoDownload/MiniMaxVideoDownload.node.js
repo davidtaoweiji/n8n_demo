@@ -50,6 +50,7 @@ class MiniMaxVideoDownload {
         };
     }
     async execute() {
+        var _a;
         const items = this.getInputData();
         const returnData = [];
         for (let i = 0; i < items.length; i++) {
@@ -68,6 +69,7 @@ class MiniMaxVideoDownload {
                 const responseJson = responseData;
                 const fileInfo = responseJson.file;
                 const downloadUrl = fileInfo === null || fileInfo === void 0 ? void 0 : fileInfo.download_url;
+                (_a = responseJson.file) === null || _a === void 0 ? true : delete _a.download_url;
                 const outputItem = {
                     json: responseJson,
                     pairedItem: { item: i },
