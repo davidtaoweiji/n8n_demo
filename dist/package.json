@@ -1,6 +1,6 @@
 {
     "name": "n8n-nodes-minimax-chat",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "description": "MiniMax Chat Model and TTS nodes for n8n - Use MiniMax AI models and speech in your workflows",
     "license": "MIT",
     "homepage": "https://github.com/davidtaoweiji/n8n_demo#readme",
@@ -52,7 +52,7 @@
             "dist/nodes/MiniMaxLyrics/MiniMaxLyrics.node.js",
             "dist/nodes/MiniMaxVideoT2V/MiniMaxVideoT2V.node.js",
             "dist/nodes/MiniMaxVideoI2V/MiniMaxVideoI2V.node.js",
-            "dist/nodes/MiniMaxVideoFl2v/MiniMaxVideoFl2v.node.js",
+            "dist/nodes/MiniMaxVideoFL2V/MiniMaxVideoFL2V.node.js",
             "dist/nodes/MiniMaxVideoQuery/MiniMaxVideoQuery.node.js",
             "dist/nodes/MiniMaxVideoDownload/MiniMaxVideoDownload.node.js"
         ]

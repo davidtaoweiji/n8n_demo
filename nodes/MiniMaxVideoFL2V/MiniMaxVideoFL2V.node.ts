@@ -7,10 +7,11 @@ import type {
 } from 'n8n-workflow';
 import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
-export class MiniMaxVideoFl2v implements INodeType {
+export class MiniMaxVideoFL2V implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'MiniMax Video: First & Last Frame to Video',
-		name: 'miniMaxVideoFl2v',
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-name-miscased
+		name: 'miniMaxVideoFL2V',
 		icon: { light: 'file:../../icons/minimax.svg', dark: 'file:../../icons/minimax.dark.svg' },
 		group: ['transform'],
 		version: 1,

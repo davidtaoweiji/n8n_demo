@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MiniMaxVideoFl2v = void 0;
+exports.MiniMaxVideoFL2V = void 0;
 const n8n_workflow_1 = require("n8n-workflow");
-class MiniMaxVideoFl2v {
+class MiniMaxVideoFL2V {
     constructor() {
         this.description = {
             displayName: 'MiniMax Video: First & Last Frame to Video',
-            name: 'miniMaxVideoFl2v',
+            name: 'miniMaxVideoFL2V',
             icon: { light: 'file:../../icons/minimax.svg', dark: 'file:../../icons/minimax.dark.svg' },
             group: ['transform'],
             version: 1,
@@ -166,5 +166,5 @@ class MiniMaxVideoFl2v {
         return [returnData];
     }
 }
-exports.MiniMaxVideoFl2v = MiniMaxVideoFl2v;
-//# sourceMappingURL=MiniMaxVideoFl2v.node.js.map
+exports.MiniMaxVideoFL2V = MiniMaxVideoFL2V;
+//# sourceMappingURL=MiniMaxVideoFL2V.node.js.map
